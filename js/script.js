@@ -49,6 +49,11 @@ let score = 0;
 
 function startQuiz(){
     console.log('Started');
+    const player = document.getElementById('username').value;
+    if (!player) {
+        alert('Please enter your name before starting quiz');
+        return;
+    }
     currentQuestionIndex = 0;
     score = 0;
     showQuestion();
@@ -121,14 +126,18 @@ function selectAnswer(){
 
 function showScore(){
     resetQuestion();
+    const player = document.getElementById('username').value;
     questionElement.innerText = `Score: ${score} out of ${questions.length}`;
     const button = document.createElement('button');
     button.innerText = 'Restart';
     button.classList.add('restart');
     button.addEventListener('click', startQuiz);
     answerButtonsElement.appendChild(button);
-    
+    clearInterval(timerInterval);
+    saveHighScore(player, score);
+    document.getElementById('username').value = '';
 }
+document.getElementById('username').value = '';
 
 function nextQuestion(){
     currentQuestionIndex++;
@@ -141,7 +150,33 @@ function nextQuestion(){
 
 }
 
+function saveHighScore (user, score){
+    const storedHighScores = JSON.parse(localStorage.getItem('highScores')) || [];
+    storedHighScores.push({user, score});
+    storedHighScores.sort((a,b) => b.score - a.score);
+    localStorage.setItem('highScores', JSON.stringify(storedHighScores));
+}
+
+//Highscore functions
+
 function redirectToHighScores(){
     window.location.href = 'highscore.html';
 }
+
+// document.addEventListener('DOMContentLoaded', displayHighScores);
+
+
+// function displayHighScores(){
+//     const highScoreList = document.getElementById('highScores');
+//     const storedHighScores = JSON.parse(localStorage.getItem('highScores'));
+
+//     highScoreList.innerHTML = ' ';
+
+//     storedHighScores.forEach(entry => {
+//         const li = document.createElement('li');
+//         li.innerText = `${entry.name} - ${entry.score}`;
+//         highScoreList.appendChild(li);
+//     });
+// }
+
 startButton.addEventListener('click', startQuiz);
