@@ -53,3 +53,7 @@ main {
 .incorrect {
     background-color: red;
 }
+
+#questionList {
+    display: none;
+}

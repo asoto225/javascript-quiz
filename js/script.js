@@ -53,6 +53,8 @@ function startQuiz(){
     score = 0;
     showQuestion();
     startTimer();
+
+    document.getElementById('questionList').style.display = 'block';
 };
 
 function showQuestion(){
@@ -138,4 +140,4 @@ function nextQuestion(){
     }
 
 }
-startButton.addEventListenerstartQuiz("click", startQuiz);
+startButton.addEventListener('click', startQuiz);
