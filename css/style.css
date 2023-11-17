@@ -57,3 +57,10 @@ main {
 #questionList {
     display: none;
 }
+
+#highScoreBtn {
+    position: fixed;
+    top: 10px;
+    left: 20px;
+    text-wrap: wrap;
+}

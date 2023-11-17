@@ -41,7 +41,7 @@ const startButton = document.getElementById('startBtn');
 const questionElement = document.getElementById('question');
 const answerButtonsElement = document.getElementById('answerBtns');
 
-const totalTimeForQuiz = 120;
+const totalTimeForQuiz = 60;
 let timeLeft = totalTimeForQuiz;
 let timerInterval;
 let currentQuestionIndex = 0;
@@ -139,5 +139,9 @@ function nextQuestion(){
         showScore()
     }
 
+}
+
+function redirectToHighScores(){
+    window.location.href = 'highscore.html';
 }
 startButton.addEventListener('click', startQuiz);
