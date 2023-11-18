@@ -1,11 +1,11 @@
 const questions = [
     {
-        question: 'The first question',
+        question: `What is the difference between "==" and "==="?`,
         answers: [
-            { text: 'The first answer', correct: true },
-            { text: 'The second answer', correct: false },
-            { text: 'The third answer', correct: false },
-            { text: 'The fourth answer', correct: false }
+            { text: `'==' compares two variables regardless of data type, '===' strictly compares two data types and it's values.`, correct: true },
+            { text: `'==' is a strict comparision between two values, '===' is a loose comparision and doesnt care about data types`, correct: false },
+            { text: `'==' does not exist in Javascript.`, correct: false },
+            { text: `There is no difference between '==' and '==='.`, correct: false }
         ]
     },
     {
@@ -64,6 +64,7 @@ function startQuiz(){
 
 function showQuestion(){
     resetQuestion();
+    resetTimer();
     let currentQuestion = questions[currentQuestionIndex];
     let questionNumber = currentQuestionIndex + 1;
     questionElement.innerText = questionNumber + '. ' + currentQuestion.question;
@@ -97,6 +98,11 @@ function startTimer(){
 function updateTimerDisplay(){
     document.getElementById('timer').innerText = `Timer: ${timeLeft}`;
 
+}
+
+function resetTimer() {
+    timeLeft = totalTimeForQuiz;
+    updateTimerDisplay();
 }
 
 function resetQuestion(){
@@ -136,8 +142,8 @@ function showScore(){
     clearInterval(timerInterval);
     saveHighScore(player, score);
     document.getElementById('username').value = '';
+    clearInterval(timerInterval);
 }
-document.getElementById('username').value = '';
 
 function nextQuestion(){
     currentQuestionIndex++;
