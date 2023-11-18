@@ -9,30 +9,31 @@ const questions = [
         ]
     },
     {
-        question: 'The second question',
+        question: `What is the difference between 'let' and 'var'?`,
         answers: [
-            { text: 'The first answer', correct: false },
-            { text: 'The second answer', correct: true },
-            { text: 'The third answer', correct: false },
-            { text: 'The fourth answer', correct: false }
+            { text: 'There is no difference.', correct: false },
+            { text: `The let declaration declares re-assignable, block-scoped local variables, optionally initializing each to a value, 
+            'var' declares function-scoped or globally-scoped variables, optionally initializing each to a value.`, correct: true },
+            { text: `Those don't exist in Javascript.`, correct: false },
+            { text: `'let' is reassignable, 'var' is not.`, correct: false }
         ]
     },
     {
-        question: 'The third question',
+        question: 'What is a function?',
         answers: [
-            { text: 'The first answer', correct: false },
-            { text: 'The second answer', correct: false },
-            { text: 'The third answer', correct: true },
-            { text: 'The fourth answer', correct: false }
+            { text: 'A groovy dance move.', correct: false },
+            { text: 'The way to identify an object.', correct: false },
+            { text: 'A reusable piece of code that can be used to perform a specific task.', correct: true },
+            { text: 'A way to group items.', correct: false }
         ]
     },
     {
-        question: 'The fourth question',
+        question: 'What is an array?',
         answers: [
-            { text: 'The first answer', correct: false },
-            { text: 'The second answer', correct: false },
-            { text: 'The third answer', correct: false },
-            { text: 'The fourth answer', correct: true }
+            { text: 'Code that is executed in the order that it appears in the source code.', correct: false },
+            { text: 'Allows certain tasks to happen concurrently and without blocking the execution of other code.', correct: false },
+            { text: 'Arrays do not exist in Javascript.', correct: false },
+            { text: 'An ordered list of elements containing any data type', correct: true }
         ]
     }
 ];
