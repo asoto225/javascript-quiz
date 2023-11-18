@@ -130,6 +130,10 @@ main {
     text-align: center;
 }
 
+.hide {
+    display: none;
+}
+
 
 
 @media screen and (max-width: 768px) {
@@ -140,3 +144,4 @@ main {
         padding-top: 40px;
     }
 }
+

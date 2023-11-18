@@ -50,6 +50,7 @@ let score = 0;
 
 function startQuiz(){
     console.log('Started');
+    resetTimer();
     const player = document.getElementById('username').value;
     if (!player) {
         alert('Please enter your name before starting quiz');
@@ -57,6 +58,7 @@ function startQuiz(){
     }
     currentQuestionIndex = 0;
     score = 0;
+    startButton.classList.add('hide');
     showQuestion();
     startTimer();
 
@@ -65,7 +67,6 @@ function startQuiz(){
 
 function showQuestion(){
     resetQuestion();
-    resetTimer();
     let currentQuestion = questions[currentQuestionIndex];
     let questionNumber = currentQuestionIndex + 1;
     questionElement.innerText = questionNumber + '. ' + currentQuestion.question;
@@ -120,6 +121,8 @@ function selectAnswer(){
         score++;
     }else{
         selectedButton.classList.add('incorrect');
+        timeLeft -= 10;
+        updateTimerDisplay();
     }
     Array.from(answerButtonsElement.children).forEach(button => {
         if(button.dataset.correct === 'true'){
